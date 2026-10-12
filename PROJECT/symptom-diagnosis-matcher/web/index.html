@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Symptom-to-Diagnosis Matcher</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="logo">+</span><span>Symptom<span class="accent">Match</span></span></div>
+  <span class="tag">DSA-3 Project</span>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">EDUCATIONAL DECISION-SUPPORT PROTOTYPE</p>
+      <h1>Understand your symptoms.<br><span>Explore possible conditions.</span></h1>
+      <p class="subtitle">Describe what you are experiencing in your own words. The system normalizes the text, matches a structured medical knowledge base, and ranks possible conditions.</p>
+    </div>
+    <div class="shield">✓</div>
+  </section>
+
+  <section class="card input-card">
+    <label for="symptoms">Describe your symptoms</label>
+    <textarea id="symptoms" placeholder="Example: I have high temperature, body pain, headache and chills..."></textarea>
+    <div class="chips">
+      <button data-text="fever, cough, sore throat and body aches">Fever + cough</button>
+      <button data-text="burning while urinating, frequent urination and lower belly pain">Urinary symptoms</button>
+      <button data-text="sneezing, running nose and itchy watery eyes">Allergy symptoms</button>
+      <button data-text="nausea, vomiting, loose motions and stomach pain">Stomach symptoms</button>
+    </div>
+    <button id="checkBtn" class="primary">Analyze Symptoms <span>→</span></button>
+    <p class="hint">Use natural language. Multiple symptoms can be entered together.</p>
+  </section>
+
+  <section id="loading" class="card loading hidden">Analyzing symptoms and ranking matches<span class="dots">...</span></section>
+
+  <section id="output" class="hidden">
+    <div class="section-title">
+      <div>
+        <p class="eyebrow">ANALYSIS</p>
+        <h2>Possible matches</h2>
+      </div>
+      <button id="clearBtn" class="secondary">Clear</button>
+    </div>
+
+    <div id="emergency" class="alert hidden">
+      <strong>Urgent warning:</strong> Some entered symptoms may require urgent medical attention. Seek emergency medical care when symptoms are severe or rapidly worsening.
+    </div>
+
+    <div class="card recognized">
+      <div class="small-title">Recognized symptoms</div>
+      <div id="recognized" class="pill-row"></div>
+      <p id="notRecognized" class="muted"></p>
+    </div>
+
+    <div id="results" class="results"></div>
+  </section>
+
+  <section class="disclaimer">
+    <strong>Important:</strong> This is an educational decision-support prototype, not a medical diagnosis. The result depends on the symptoms recognized by this project's knowledge base. A healthcare professional and appropriate clinical tests are required for diagnosis.
+  </section>
+</main>
+
+<footer>Symptom-to-Diagnosis Matcher • Data Structures and Algorithms - 3</footer>
+<script src="script.js"></script>
+</body>
+</html>
